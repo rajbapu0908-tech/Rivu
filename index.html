@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>From My Heart ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background */
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('moment18.jpg') center/cover no-repeat;
+            filter: blur(8px);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            inset: 0;
+
+        }
+
+        /* Content */
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 420px;
+            max-height: 200vh;
+            overflow-y: auto;
+            animation: fadeUp 1.5s ease;
+        }
+
+        .card h1 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Images */
+        .photos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .photos img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .top-nav {
+            position: fixed;
+            bottom: 10px;
+            /* 👈 NEXT ke upar aa jayega */
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            background: #ffffff7e;
+            padding: 10px 0;
+            border-radius: 20px;
+        }
+
+        section {
+            min-height: 100vh;
+            display: block;
+            padding: 80px 20px 120px;
+            display: none;
+            animation: fade 1s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* Button */
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #ff6b81;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
+
+        nav {
+            overflow-x: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 8px 15px;
+            background-color: rgb(229, 112, 112);
+            border-radius: 25px;
+            color: #ffffff;
+            border: px solid black;
+            font-weight: 600;
+        }
+
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
+            animation: fadeUp 1s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Hearts */
+        .heart {
+            position: absolute;
+            top: -10px;
+            color: #ff6b81;
+            font-size: 20px;
+            animation: fall 6s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+
+        }
+
+        .fall-item {
+            position: fixed;
+            top: -30px;
+            font-size: 28px;
+            pointer-events: none;
+            animation: fall 6s linear forwards;
+            z-index: 10;
+        }
+
+        .fall-img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="VWeek" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Love… ❤️</h1>
+                <p>
+                    for my My One Of the Specil Dhaboo 🥰 <br>
+                    I Am All yours But ...<br>
+                    This Is For You My CutiePie ...😘😘😘<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment23.jpg">
+                    <img src="moment50.jpg">
+                    <img src="moment25.jpg">
+                </div>
+                <p>
+                    💝💝💝
+                </p>
+
+                <button onclick="playSong('milna.mpeg')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="RoseDay" class="action">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Rose… ❤️</h1>
+                <p>
+                    Happy Rose Day... 🥰 <br>
+
+                    To My Cutest Rose ...<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment18.jpg">
+                    <img src="moment49.jpg">
+                    <img src="moment8.jpg">
+                </div>
+                <p>
+                    🌹🌹🌹
+                </p>
+
+                <button onclick="playSong('satrangi.mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="ProposeDay" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Cutie Pie… ❤️</h1>
+                <p>
+                    Can You Stay With Me in My Home 🏡☺️ <br>
+                    Shu Mara Nankda Ghar Ma Mari Mummy Papa Ni Ek Nankdi Cute Pari Banine avis mara Ghare ..😁<br>
+                    Mari Dobi Bani ne Rais Life Time ...😍😍😍<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment27.jpg">
+                    <img src="moment44.jpg.png">
+                    <img src="moment26.jpg">
+                </div>
+                <p>
+                    💍💍💍
+                </p>
+
+                <button onclick="playSong('Propose.mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="ChocolateDay" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Cocolaty… ❤️</h1>
+                <p>
+                    Happy Chocolate Day 🍫☺️ <br>
+                    Mari gol matol...😁<br>
+                    My Sweet Heart ...😍😍😍<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment31.jpg">
+                    <img src="moment48.jpg">
+                    <img src="moment32.jpg">
+                </div>
+                <p>
+                    🍫🍫🍫
+                </p>
+
+                <button onclick="playSong('TumSe.mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="TeddyDay" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Cute Teddy… 🧸❤️</h1>
+                <p>
+                    Happy Teddy Day 🧸🧸🧸<br>
+                    Always Stay With As a my Teddy 🧸☺️ <br>
+                    🥰🥰🥰<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment38.jpg">
+                    <img src="moment5.jpg">
+                    <img src="moment45.jpg">
+                </div>
+                <p>
+                    🧸🧸🧸
+                </p>
+
+                <button onclick="playSong('TumSe.mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="PromiseDay" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Dhabuu… ❤️</h1>
+                <p>
+                    Happy Promise Day... ☺️ <br>
+                    I Promise I never Lose your hand Life time <br>
+                    🫂🫂🫂<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment39.jpg">
+                    <img src="moment47.jpg">
+                    <img src="moment14.jpg">
+                </div>
+                <p>
+                    🫳🏻🫳🏻🫳🏻
+                </p>
+
+                <button onclick="playSong('Tum_Ho_Toh.mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="HugDay" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Better Half… ❤️</h1>
+                <p>
+                    Happy Hug day 🫂🫂☺️ <br>
+                    Hug you SO SO SO much 🤗<br>
+                    Mari Dobi 😍😍<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment21.jpg">
+                    <img src="moment20.jpg">
+                    <img src="moment43.jpg">
+                </div>
+                <p>
+                    🤗🫂🫂
+                </p>
+
+                <button onclick="playSong('TuHaiye(128k).mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="KissDay" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>Mari Mithudi… ❤️</h1>
+                <p>
+                    Happy Kiss Day 😘😘😚😚 <br>
+                    Aje to Mare tane kevu Pade chhe k Tari Kiss ni bv yd ave chhe Yrr ..🥹🥺<br>
+                    Mari Gheli...😘😚😘😚<br>
+                </p>
+
+                <div class="photos">
+                    <img src="moment41.jpeg">
+                    <img src="moment29.jpg">
+                    <img src="moment40.jpg">
+                </div>
+                <p>
+                    😘😚😘😚
+                </p>
+
+
+                <button onclick="playSong('Beautiful.mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="ValentineDay" class="active">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="card">
+                <h1>My Love… ❤️</h1>
+                <p>
+                    I LOVE YOU SO MUCH Mari my friend 💛, my GF 💞,my love😘 💕,my wife' 💖, my queen 👑 , my soulmate💝
+                    , my smile 😊, my heart ❤️, my god ☺️, you are my everything 💛💕💞❤️💖💝🫂🥹😍
+                </p>
+                <p>
+                    Give Me Ans ...!
+                </p>
+                <p>
+                    Will you be my valentine💌!<br>
+                    Will you be my girlfrind🌹!<br>
+                    Will you be my future Wife👩🏼‍❤️‍💋‍👨🏼!<br>
+                    Will you be my soulmate🤗!<br>
+                    Forever
+                </p>
+                <div class="photos">
+                    <img src="moment28.jpg">
+                    <img src="moment24.jpg">
+                    <img src="moment46.jpg">
+                </div>
+                <p>
+                    💝💝💝
+                </p>
+
+                <button onclick="playSong('Tum_Se_Hi.mp3')">🎶 Tap Here 💖</button>
+                <audio id="globalAudio"></audio>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <nav class="top-nav">
+        <a href="#" onclick="show('VWeek')">Vweek</a>
+        <a href="#" onclick="show('RoseDay')">RoseDay</a>
+        <a href="#" onclick="show('ProposeDay')">ProposeDay</a>
+        <a href="#" onclick="show('ChocolateDay')">ChocolateDay</a>
+        <a href="#" onclick="show('TeddyDay')">TeddyDay</a>
+        <a href="#" onclick="show('PromiseDay')">PromiseDay</a>
+        <a href="#" onclick="show('HugDay')">HugDay</a>
+        <a href="#" onclick="show('KissDay')">KissDay</a>
+        <a href="#" onclick="show('ValentineDay')">ValentineDay</a>
+    </nav>
+
+    <script>
+        let audio = document.getElementById("globalAudio");
+        let audioTimer = null;
+
+        function playSong(src) {
+            // Stop previous song
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Clear old timer
+            if (audioTimer) clearTimeout(audioTimer);
+
+            // Play new song
+            audio.src = src;
+            audio.play();
+
+            // Stop after 60 seconds
+            audioTimer = setTimeout(() => {
+                audio.pause();
+                audio.currentTime = 0;
+            }, 60000);
+        }
+        function clearFalls() {
+            document.querySelectorAll(".fall-item").forEach(el => el.remove());
+        }
+
+
+        function startFalling(type) {
+            clearFalls();
+
+            let emojis = [];
+            let images = [];
+
+            switch (type) {
+                case "VWeek":
+                    emojis = ["❤️"];
+                    break;
+                case "RoseDay":
+                    emojis = ["🌹"];
+                    break;
+                case "ProposeDay":
+                    emojis = ["💍"];
+                    break;
+                case "ChocolateDay":
+                    emojis = ["🍫"];
+                    break;
+                case "TeddyDay":
+                    emojis = ["🧸"];
+                    break;
+                case "PromiseDay":
+                    emojis = ["💌"];
+                    break;
+                case "HugDay":
+                    emojis = ["🫂", "🤗"];
+                    break;
+                case "KissDay":
+                    emojis = ["😘", "😚"];
+                    break;
+                case "ValentineDay":
+                    images = [
+                        "moment5.jpg",
+                        "moment8.jpg",
+                        "moment14.jpg",
+                        "moment18.jpg",
+                        "moment20.jpg",
+                        "moment21.jpg",
+                        "moment23.jpg",
+                        "moment24.jpg",
+                        "moment25.jpg",
+                        "moment26.jpg",
+                        "moment27.jpg",
+                        "moment28.jpg",
+                        "moment29.jpg",
+                        "moment31.jpg",
+                        "moment40.jpg",
+                        "moment41.jpg",
+                        "moment44.jpg",
+                        "moment43.jpg",
+                        "moment46.jpg",
+                        "moment47.jpg",
+                        "moment45.jpg",
+                        "moment48.jpg",
+                        "moment49.jpg",
+                        "moment50.jpg",
+                    ];
+                    break;
+            }
+
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    let el;
+
+                    if (images.length > 0) {
+                        el = document.createElement("img");
+                        el.src = images[Math.floor(Math.random() * images.length)];
+                        el.className = "fall-item fall-img";
+                    } else {
+                        el = document.createElement("div");
+                        el.className = "fall-item";
+                        el.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    }
+
+                    el.style.left = Math.random() * 100 + "vw";
+                    el.style.animationDuration = (4 + Math.random() * 4) + "s";
+                    document.body.appendChild(el);
+
+                    setTimeout(() => el.remove(), 80000);
+                }, i * 150);
+            }
+        }
+
+        function show(id) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
+            startFalling(id);
+        }
+
+        // Default on load
+        startFalling("VWeek");
+    </script>
+
+
+</body>
+
+</html>
